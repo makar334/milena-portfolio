@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Милена | Визажист креативных макияжей</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #cbcf95;
+            --accent-color: #580c1f;
+            --text-color: #2b2b2b;
+            --pink-bg: #f9e6eb;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-script: 'Alex Brush', cursive;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-serif);
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--bg-color);
+            padding: 20px 20px 60px 20px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(88, 12, 31, 0.2);
+            padding-bottom: 15px;
+        }
+
+        .logo-title {
+            font-family: var(--font-script);
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 15px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        section { margin-bottom: 40px; }
+
+        .script-title {
+            font-family: var(--font-script);
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .oval-border-box {
+            position: relative;
+            padding: 70px 45px;
+            margin: 30px 0;
+            z-index: 1;
+        }
+        .oval-border-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1.5px solid var(--accent-color);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .oval-border-box p { font-size: 1.1rem; margin-bottom: 20px; }
+        .oval-border-box p:last-child { margin-bottom: 0; }
+
+        .grid-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .grid-portfolio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .grid-2x2 img, .grid-portfolio img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 2px;
+            display: block;
+            background-color: #b8bd8c;
+        }
+
+        .courses-block {
+            position: relative;
+            padding: 60px 40px 100px 40px;
+            margin: 30px 0;
+        }
+        .courses-block::before, .courses-block::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1.5px solid var(--accent-color);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .courses-block::after {
+            top: -10px; bottom: -10px; left: -10px; right: -10px;
+            opacity: 0.6;
+        }
+        .price-list-simple {
+            list-style: none;
+            text-align: left;
+            margin: 20px auto;
+            max-width: 90%;
+        }
+        .price-list-simple li {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            gap: 15px;
+        }
+        .price-list-simple li span:first-child { flex: 1; }
+        .price-list-simple li span:last-child {
+            font-weight: 600;
+            color: var(--accent-color);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .pink-card {
+            background-color: var(--pink-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 35px;
+            padding: 25px 20px;
+            margin: 25px 0;
+            text-align: left;
+        }
+        .pink-card-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        .pink-card-list { list-style: none; }
+        .pink-card-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed rgba(88, 12, 31, 0.2);
+            padding-bottom: 5px;
+            gap: 10px;
+        }
+        .pink-card-list li span:last-child {
+            color: var(--accent-color);
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .steps-flex {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 30px 0;
+        }
+        .step-item { flex: 1; padding: 0 5px; }
+        .step-item i {
+            font-size: 2.2rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+        .step-item p { font-size: 0.9rem; }
+
+        .btn {
+            display: block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-radius: 35px;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin: 15px auto;
+            width: 85%;
+            box-shadow: 0 8px 15px rgba(88, 12, 31, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        .contacts-block { margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <div class="page-container" id="home">
+
+        <header>
+            <div class="logo-title">Визажист креативных макияжей</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#courses">Обучение</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="about">
+            <h1 class="script-title">Меня зовут Милена и я являюсь креативным визажистом</h1>
+            
+            <div class="oval-border-box">
+                <p>Если ты давно хотела сделать яркий арт-макияж на съёмку, фотосессию или для любой другой цели, то ты в правильном месте!</p>
+                <p>Я специализируюсь именно на таких макияжах, которые подчёркивают индивидуальность внешности, заставляют сотни прохожих оборачиваться и собирают миллионы лайков в Instagram.</p>
+            </div>
+
+            <div class="grid-2x2">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Макияж 1">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Макияж 2">
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2 class="script-title">Мои работы:</h2>
+            <div class="grid-portfolio">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Работа 1">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Работа 2">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Работа 3">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Работа 4">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Работа 5">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Работа 6">
+            </div>
+        </section>
+
+        <section id="courses">
+            <h2 class="script-title">Мечтаешь творить волшебство на лицах?</h2>
+            
+            <div class="grid-2x2">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Фото 1">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Фото 2">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Фото 3">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Фото 4">
+            </div>
+
+            <div class="courses-block">
+                <h2 class="script-title">Тогда тебе ко мне</h2>
+                <ul class="price-list-simple">
+                    <li><span>• Повышение + креативный макияж для визажиста</span><span>45 000р</span></li>
+                    <li><span>• Осваивание креативного макияжа для себя</span><span>30 000р</span></li>
+                    <li><span>• Профессиональный арт визаж</span><span>30 000р</span></li>
+                </ul>
+                <a href="#contacts" class="btn">Написать мне</a>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="grid-2x2">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Процесс 1">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Процесс 2">
+            </div>
+
+            <div class="pink-card">
+                <div class="pink-card-header">
+                    <span>Услуги:</span>
+                    <span>Прайс:</span>
+                </div>
+                <ul class="pink-card-list">
+                    <li><span>• арт-макияж на фотосъёмки</span><span>3000р</span></li>
+                    <li><span>• креативный свадебный макияж</span><span>7000р</span></li>
+                    <li><span>• вечерний макияж на мероприятие</span><span>5500р</span></li>
+                    <li><span>• базовый макияж + стразы/блёстки/украшения</span><span>6500р</span></li>
+                    <li><span>• вечерний макияж + стразы/блёстки/украшения</span><span>7000р</span></li>
+                </ul>
+            </div>
+
+            <div class="grid-2x2">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Пример 1">
+                <img src="https://i.postimg.cc/nrXdyHqs/photo-2026-09-12-22-42-21.jpg" alt="Пример 2">
+            </div>
+        </section>
+
+        <section id="contacts">
+            <h2 class="section-title">Как получить услугу или записаться на обучение:</h2>
+            
+            <div class="steps-flex">
+                <div class="step-item">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <p>Пишешь или звонишь мне</p>
+                </div>
+                <div class="step-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <p>Всё обговариваем</p>
+                </div>
+                <div class="step-item">
+                    <i class="fa-solid fa-crown"></i>
+                    <p>Встречаемся в удобном для тебя месте</p>
+                </div>
+            </div>
+
+            <div class="contacts-block">
+                <h2 class="section-title">Все подробности вы можете найти в моих социальных сетях:</h2>
+                
+                <a href="https://t.me/mlkrsh" class="btn" target="_blank">Ссылка на ТГ</a>
+                <a href="https://instagram.com/" class="btn" target="_blank">Ссылка на Инсту</a>
+                <a href="tel:+996000000000" class="btn">Номер телефона</a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
